@@ -64,53 +64,49 @@ h2 {
 
 
 /**
- * Navigation
+ * Global styles
  */
 
-.navbar {
-  margin-top: 20px;
-  
-  small {
-    font-size: 60%;
-  }
+.profile-icon {
+  height: 40px;
+  width: 40px;
 }
-
 
 /**
- * Footer
+ * Utilities
  */
 
-.footer {
-  margin-top: 80px;
-
-  .footer-inner {
-    padding: 40px 0;
-    border-top: 1px solid #DDD;
-  }
-
-  .social {
-    float: right;
-    margin: 0;
-    list-style: none;
-
-    li {
-      float: left;
-      margin-left: 20px;
-
-      a, a:visited {
-        color: @gray-light;
-        text-decoration: none;
-        font-size: 40px;
-        .transition( 250ms ease-in-out );
-
-        &:hover {
-          color: @gray;
-        }
-      }
-    }
-  }
+.m-t-10 {
+  margin-top: 10px !important;
 }
 
+.m-r-10 {
+  margin-right: 10px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px !important;
+}
+
+.m-l-10 {
+  margin-left: 5px !important;
+}
+
+.m-t-5 {
+  margin-top: 5px !important;
+}
+
+.m-r-5 {
+  margin-right: 5px !important;
+}
+
+.m-b-5 {
+  margin-bottom: 5px !important;
+}
+
+.m-l-5 {
+  margin-left: 5px !important;
+}
 
 /**
  * Now that all app-wide styles have been applied, we can load the styles for
@@ -120,4 +116,5 @@ h2 {
  */
 
 @import '../app/home/home.less';
+@import '../app/header.less';
 

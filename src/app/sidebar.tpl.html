@@ -1,0 +1,10 @@
+<h1>Care Team</h1>
+<div ng-repeat="member in ctrl.team">
+  <img ng-src="{{member.image}}" class="img-rounded profile-icon left-align">
+  <p class="member-title">{{member.title}}</p>
+  <p class="member-role">{{member.role}}</p>
+</div>
+
+<h1>Contact Info</h1>
+<p>Non-urgent: {{ctrl.contact.nonUrgent | tel}}</p>
+<p>Urgent: Call 911</p>
