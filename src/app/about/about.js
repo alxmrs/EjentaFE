@@ -1,18 +1,18 @@
 (function(){
   'use strict';
   
-  angular.module( 'ngBoilerplate.about', [
+  angular.module( 'app.about', [
     'ui.router',
     'placeholders',
     'ui.bootstrap'
   ])
 
     .config(function config( $stateProvider ) {
-      $stateProvider.state( 'about', {
+      $stateProvider.state( 'root.about', {
         url: '/about',
         views: {
-          "main": {
-            controller: 'AboutCtrl',
+          "main@": {
+            controller: 'AboutCtrl as ctrl',
             templateUrl: 'about/about.tpl.html'
           }
         },

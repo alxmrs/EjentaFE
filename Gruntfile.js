@@ -592,6 +592,24 @@ module.exports = function ( grunt ) {
   }
 
   /**
+   * A utility function to place javascript files in proper import order.
+   * First vendor files, then modules, then the rest.
+   */
+  function enforceImportOrder(jsFiles){
+    var modules = jsFiles.filter(function(file){
+      return file.match(/\.module\.js/);
+    });
+    var vendor  = jsFiles.filter(function(file){
+      return file.match(/vendor/);
+    });
+    var rest    = jsFiles.filter(function(file){
+      return !file.match(/\.module\.js/) && !file.match(/vendor/);
+    });
+
+    return vendor.concat(modules.concat(rest));
+  }
+
+  /**
    * A utility function to get all app CSS sources.
    */
   function filterForCSS ( files ) {
@@ -611,6 +629,9 @@ module.exports = function ( grunt ) {
     var jsFiles = filterForJS( this.filesSrc ).map( function ( file ) {
       return file.replace( dirRE, '' );
     });
+
+    jsFiles = enforceImportOrder(jsFiles);
+
     var cssFiles = filterForCSS( this.filesSrc ).map( function ( file ) {
       return file.replace( dirRE, '' );
     });

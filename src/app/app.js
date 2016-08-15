@@ -1,27 +1,41 @@
 (function () {
   'use strict';
 
-  angular.module('ngBoilerplate', [
+  angular.module('app', [
     'templates-app',
     'templates-common',
-    'ngBoilerplate.home',
-    'ngBoilerplate.about',
+    'app.home',
+    'app.about',
     'ui.router'
   ])
 
     .config(function myAppConfig($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/home');
+      $stateProvider
+        .state('root', {
+          url: '', 
+          abstract: true, 
+          views: {
+            'sidebar': {
+              controller: 'SidebarCtrl',
+              controllerAs: 'ctrl',
+              templateUrl: 'sidebar.tpl.html'
+            }
+          }
+        });
     })
 
     .run(function run() {
     })
 
+    .constant('API_URL', 'https://interactionservice-staging.ejenta.com/')
+
     .controller('AppCtrl', function AppCtrl($scope, $location) {
-      $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-        if (angular.isDefined(toState.data.pageTitle)) {
-          $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate';
-        }
-      });
+      // $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+      //   if (angular.isDefined(toState.data.pageTitle)) {
+      //     $scope.pageTitle = toState.data.pageTitle + ' | Ejenta';
+      //   }
+      // });
     });
 
 })();
